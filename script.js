@@ -1,5 +1,27 @@
 const inputButton = document.querySelector(".inputButton");
 const inputCity = document.querySelector("#city");
+const UNSPLASH_ACCESS_KEY = '2GB3Q5rtkESgtgT08v7GXO7N6iuYb9_92zNz8Nr0s74';
+
+async function fetchCityImage(cityName) {
+    const url = `https://api.unsplash.com/search/photos?query=${cityName}&client_id=${UNSPLASH_ACCESS_KEY}`;
+    const response = await fetch(url);
+    const data = await response.json();
+    return data.results[0].urls.regular; 
+}
+async function updateCityImage(cityName) {
+    try {
+        const imageUrl = await fetchCityImage(cityName);
+        const imageContainer = document.querySelector(".meteoCard__une__photo");
+        imageContainer.innerHTML = `<img src="${imageUrl}" alt="Image de ${cityName}" class="imgCity">`;
+    } catch (error) {
+        console.error("Erreur lors de la récupération de l'image de la ville :", error);
+    }
+}
+const fetchPhoto  = async () => {
+    const url= "https://api.unsplash.com/photos?client_id=2GB3Q5rtkESgtgT08v7GXO7N6iuYb9_92zNz8Nr0s74"
+    const response = await fetch(url);
+    return response.json
+}
 
 const fetchCity = async(cityName) => {
     const url = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=dee8f388d8fc9ba6a29dd1055cffe1a5`;
@@ -44,10 +66,8 @@ async function getMeteoData(lon, lat) {
     }
 }
 
-inputButton.addEventListener('click', (event) => {
+inputButton.addEventListener('click', async (event) => {
     event.preventDefault();
     const cityName = inputCity.value;
-    const meteoCardVilleUne = document.querySelector(".meteoCard__une__ville");
-    meteoCardVilleUne.textContent = cityName;
-    getCityData(cityName);
-});
+    await getCityData(cityName);
+    await updateCityImage(cityName); })

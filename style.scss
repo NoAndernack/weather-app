@@ -17,12 +17,15 @@ body {
 
 .meteoCard {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    
     
 
     &__une {
         margin: 5px;
-        width: 18vw;
-        height: 80vh;
+        width: 80vw;
+        height: 50vh;
         background-color: whitesmoke;
         border-radius: 20px;
         overflow: scroll;
@@ -36,11 +39,9 @@ body {
             display: flex;
             align-items: center;
             justify-content: center;
-
-            &--ville {
-                width: 80%;
                 padding: 10px;
                 border-radius: 10%;
+
             }
         }
 
@@ -50,7 +51,6 @@ body {
             align-items: center;
         }
     }
-}
 .inputButton{
     border:none;
     background-color: white;
@@ -58,3 +58,6 @@ body {
     color: gray;
     border-radius: 5px;
 }
+// .imgCity{
+  
+// }
