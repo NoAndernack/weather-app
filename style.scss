@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("img/nuage.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#ville {
+    border-radius: 10px;
+    border: none;
+}
+
+.meteoCard {
+    display: flex;
+    
+
+    &__une {
+        margin: 5px;
+        width: 18vw;
+        height: 80vh;
+        background-color: whitesmoke;
+        border-radius: 20px;
+        overflow: scroll;
+
+        &__ville {
+            text-align: center;
+            font-weight: 800;
+        }
+
+        &__photo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &--ville {
+                width: 80%;
+                padding: 10px;
+                border-radius: 10%;
+            }
+        }
+
+        &__météo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+}
+.inputButton{
+    border:none;
+    background-color: white;
+    font-weight:600;
+    color: gray;
+    border-radius: 5px;
+}
