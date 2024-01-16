@@ -1,3 +1,17 @@
+
+@mixin day {
+    width: 135px;
+    height: 250px;
+    margin:5px;
+    background-color: rgba(128, 128, 128, 0.253);
+    border-radius: 10px;
+    text-align: start;
+    padding-left: 7px;
+    display: flex;
+    flex-direction: column;
+}
+
+
 @mixin phone {
     @media screen and (max-width:376px) {
         @content

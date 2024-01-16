@@ -14,19 +14,22 @@ async function updateCityImage(cityName) {
         const imageContainer = document.getElementById(`meteoCardPhoto-${cityName}`);
 
         if (imageContainer) {
-            // Créer l'élément img et appliquer les styles
+            const fig = document.createElement('figure');
             const img = document.createElement('img');
+            const figcaption = document.createElement('figcaption');
+
+            figcaption.textContent = cityName;
+            figcaption.style.textAlign = "center"
             img.src = imageUrl;
             img.alt = `Image de ${cityName}`;
             img.className = 'imgCity'; 
-            img.style.width = '250px';
-            img.style.height = '200px';
-            img.style.padding = '10px';
+            img.style.width = '220px';
+            img.style.height = '220px';
             img.style.borderRadius = '10%';
-
-            // Ajouter l'image au conteneur
-            imageContainer.innerHTML = ''; // Effacer le contenu précédent
-            imageContainer.appendChild(img);
+            fig.appendChild(img);
+            fig.appendChild(figcaption);
+            imageContainer.innerHTML = '';
+            imageContainer.appendChild(fig);
         }
     } catch (error) {
         console.error("Erreur lors de la récupération de l'image de la ville :", error);
@@ -142,9 +145,6 @@ async function getMeteoData(lon, lat, cityName) {
 }
 inputButton.addEventListener('click', async (event) => {
     event.preventDefault();
-
-
-
     const cityName = inputCity.value;
     await getCityData(cityName);
     await updateCityImage(cityName);

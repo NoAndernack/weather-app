@@ -82,7 +82,6 @@ label {
     background-color: rgba(245, 245, 245, 0.575);
     border-radius: 20px;
     padding-top: 10px;
-    padding-right: 10px;
     position: relative;
     @include phone {
         width: 80vw;
@@ -95,9 +94,7 @@ label {
     }
 
     &__photo {
-        width: 250px;
-        height: 200px;
-        padding: 10px;
+        padding-right: 10px;
         border-radius: 10%;
         
 
@@ -110,49 +107,24 @@ label {
 
 
     &__day1 {
-        width: 135px;
-        height: 250px;
-        text-align: center;
-        margin:5px;
-        background-color: rgba(128, 128, 128, 0.253);
-        border-radius: 10px;
+       @include day
 
     }
 
     &__day2 {
-        width: 135px;
-        height: 250px;
-        text-align: center;
-        margin:5px;
-        background-color: rgba(128, 128, 128, 0.253);
-        border-radius: 10px;
+        @include day
     }
 
     &__day3 {
-        width: 135px;
-        height: 250px;
-        text-align: center;
-        margin:5px;
-        background-color: rgba(128, 128, 128, 0.253);
-        border-radius: 10px;
+        @include day
     }
 
     &__day4 {
-        width: 135px;
-        height: 250px;
-        text-align: center;
-        margin:5px;
-        background-color: rgba(128, 128, 128, 0.253);
-        border-radius: 10px;
+        @include day
     }
 
     &__day5 {
-        width: 135px;
-        height: 250px;
-        text-align: center;
-        margin:5px;
-        background-color: rgba(128, 128, 128, 0.253);
-        border-radius: 10px;
+        @include day
     }
 }
 
@@ -166,18 +138,6 @@ label {
     @include phone {
         width:10px;
         height:10px;
-    }
-}
-
-.imgCity {
-    width: 250px; // Taille par défaut
-    height: 200px; // Taille par défaut
-    padding: 10px;
-    border-radius: 10%;
-
-    @include phone {
-        width: 150px; // Taille plus petite en mode téléphone
-        height: 120px; // Taille plus petite en mode téléphone
     }
 }
 
