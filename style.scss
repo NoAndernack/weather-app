@@ -1,36 +1,75 @@
+@import 'asset/mixin';
+@import url('https://fonts.googleapis.com/css?family=Raleway|Droid+Sans|Roboto+Slab:400,700');
+
+
+
 body {
     margin: 0;
     padding: 0;
     background-image: url("img/nuage.png");
-    background-size: 100%;
+    background-size: 100% auto;
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Raleway";
+    font-weight: 400;
+    
+
+    @include phone {
+        background-size: cover; 
+    }
 }
+
+
 header {
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
+ 
 }
-form{
+
+form {
     display: flex;
+    align-items: center;
 }
-.logo{
-    width:140px;
+
+.logo {
+    width: 140px;
+
+    @include phone {
+        width: 100px;
+    }
 }
-label{
-    margin:10px;
+
+label {
+    margin: 10px;
     color: whitesmoke;
+
+    @include phone {
+        font-size: 15px;
+    }
 }
-.titre{
-    color:white;
+
+.titre {
+    color: white;
+
+    @include phone {
+        font-size: 20px;
+    }
 }
+
+
 #city {
     border-radius: 40px;
     border: none;
-   
+
+    @include phone {
+        border-radius: 5px;
+        height: 10px;
+        width:40px;  
+    font-size: 7px;  }
+
 }
 
 .meteoCard {
@@ -40,80 +79,128 @@ label{
     margin: 5px;
     width: 80vw;
     height: 270px;
-    background-color: rgba(245, 245, 245, 0.443);
+    background-color: rgba(245, 245, 245, 0.575);
     border-radius: 20px;
     padding-top: 10px;
     padding-right: 10px;
+    position: relative;
+    @include phone {
+        width: 80vw;
+        height:1000px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-left:10px
+    
+    }
+
     &__photo {
-        width:250px;
+        width: 250px;
         height: 200px;
         padding: 10px;
         border-radius: 10%;
+        
 
     }
+
     &__city {
         text-align: center;
         font-weight: 800;
     }
-  
 
-    &__one {
-        width:135px;
-        height: 250px;
-        text-align: center;
 
-        }
-    
-        &__two{
-            width:135px;
-            height: 250px;
-            text-align: center;
-        }
-        &__three{
-            width:135px;
+    &__day1 {
+        width: 135px;
         height: 250px;
         text-align: center;
-        }
-        &__four{
-            width:135px;
-        height: 250px;
-        
-        text-align: center;
-        }
-        &__five{
-            width:135px;
-            height: 250px;
-            text-align: center;
-        }
+        margin:5px;
+        background-color: rgba(128, 128, 128, 0.253);
+        border-radius: 10px;
+
     }
-    
-.inputButton{
-    border:none;
-    background-color: white;
-    font-weight:600;
-    color: gray;
-    border-radius: 40px;
-    margin:10px;
+
+    &__day2 {
+        width: 135px;
+        height: 250px;
+        text-align: center;
+        margin:5px;
+        background-color: rgba(128, 128, 128, 0.253);
+        border-radius: 10px;
+    }
+
+    &__day3 {
+        width: 135px;
+        height: 250px;
+        text-align: center;
+        margin:5px;
+        background-color: rgba(128, 128, 128, 0.253);
+        border-radius: 10px;
+    }
+
+    &__day4 {
+        width: 135px;
+        height: 250px;
+        text-align: center;
+        margin:5px;
+        background-color: rgba(128, 128, 128, 0.253);
+        border-radius: 10px;
+    }
+
+    &__day5 {
+        width: 135px;
+        height: 250px;
+        text-align: center;
+        margin:5px;
+        background-color: rgba(128, 128, 128, 0.253);
+        border-radius: 10px;
+    }
 }
+
+.inputButton {
+    border: none;
+    background-color: rgb(10, 255, 26);
+    border-radius: 50%;
+    width:15px;
+        height:15px;
+    margin: 10px;
+    @include phone {
+        width:10px;
+        height:10px;
+    }
+}
+
 .imgCity {
-    width: 250px; 
-    height: 200 px; 
-    object-fit: cover; 
-    border-radius: 10%; 
+    width: 250px; // Taille par défaut
+    height: 200px; // Taille par défaut
+    padding: 10px;
+    border-radius: 10%;
+
+    @include phone {
+        width: 150px; // Taille plus petite en mode téléphone
+        height: 120px; // Taille plus petite en mode téléphone
+    }
 }
+
 .day {
     font-size: 13px;
 }
+
 .fa-solid {
     margin-right: 10px;
 }
-#buttonExit{
-    width:20px;
-    height:20px;
-    display:flex;
+
+#buttonExit {
+    width: 20px;
+    height: 20px;
+    display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     border: none;
     background-color: red;
+    @include phone {
+        position: absolute;
+        top : 10px;
+        left:290px
+    }
 }

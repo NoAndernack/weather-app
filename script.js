@@ -18,7 +18,7 @@ async function updateCityImage(cityName) {
             const img = document.createElement('img');
             img.src = imageUrl;
             img.alt = `Image de ${cityName}`;
-            img.className = 'imgCity';
+            img.className = 'imgCity'; 
             img.style.width = '250px';
             img.style.height = '200px';
             img.style.padding = '10px';
