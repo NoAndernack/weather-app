@@ -1,8 +1,7 @@
-@charset "UTF-8";
 body {
   margin: 0;
   padding: 0;
-  background-image: url("img/nuage.jpg");
+  background-image: url("img/nuage.png");
   background-size: 100%;
   background-repeat: no-repeat;
   display: flex;
@@ -11,39 +10,80 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#ville {
-  border-radius: 10px;
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  display: flex;
+}
+
+.logo {
+  width: 140px;
+}
+
+label {
+  margin: 10px;
+  color: whitesmoke;
+}
+
+.titre {
+  color: white;
+}
+
+#city {
+  border-radius: 40px;
   border: none;
 }
 
 .meteoCard {
   display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.meteoCard__une {
+  flex-direction: row;
+  justify-content: space-between;
   margin: 5px;
   width: 80vw;
-  height: 50vh;
-  background-color: whitesmoke;
+  height: 270px;
+  background-color: rgba(245, 245, 245, 0.443);
   border-radius: 20px;
-  overflow: scroll;
+  padding-top: 10px;
+  padding-right: 10px;
 }
-.meteoCard__une__ville {
-  text-align: center;
-  font-weight: 800;
-}
-.meteoCard__une__photo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.meteoCard__photo {
+  width: 250px;
+  height: 200px;
   padding: 10px;
   border-radius: 10%;
 }
-.meteoCard__météo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.meteoCard__city {
+  text-align: center;
+  font-weight: 800;
+}
+.meteoCard__one {
+  width: 135px;
+  height: 250px;
+  text-align: center;
+}
+.meteoCard__two {
+  width: 135px;
+  height: 250px;
+  text-align: center;
+}
+.meteoCard__three {
+  width: 135px;
+  height: 250px;
+  text-align: center;
+}
+.meteoCard__four {
+  width: 135px;
+  height: 250px;
+  text-align: center;
+}
+.meteoCard__five {
+  width: 135px;
+  height: 250px;
+  text-align: center;
 }
 
 .inputButton {
@@ -51,5 +91,32 @@ body {
   background-color: white;
   font-weight: 600;
   color: gray;
-  border-radius: 5px;
+  border-radius: 40px;
+  margin: 10px;
+}
+
+.imgCity {
+  width: 250px;
+  height: 200 px;
+  object-fit: cover;
+  border-radius: 10%;
+}
+
+.day {
+  font-size: 13px;
+}
+
+.fa-solid {
+  margin-right: 10px;
+}
+
+#buttonExit {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: none;
+  background-color: red;
 }
