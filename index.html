@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
     <script src="https://kit.fontawesome.com/990b578aaa.js" crossorigin="anonymous"></script>
-    
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAi_bGNl73feBuLFLRe4MP78mMeZ6vgoAk&callback=initialize&libraries=places"></script>
 
 </head>
 <header>
@@ -17,12 +18,15 @@
 </header>
 
 <body>
+
     <form>
         <label for="city">Entrez le nom d'une ville</label><br>
-        <input type="text" id="city" name="city">
+        <input type="text" id="city" name="city" placeholder="City" autocomplete="off">
+        <ul id="autocompleteList" style="display: none;"></ul>
         <button class="inputButton"></button>
+
     </form>
-    
+
 </body>
 
 </html>

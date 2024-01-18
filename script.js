@@ -2,6 +2,7 @@ const inputButton = document.querySelector(".inputButton");
 const inputCity = document.querySelector("#city");
 const UNSPLASH_ACCESS_KEY = '2GB3Q5rtkESgtgT08v7GXO7N6iuYb9_92zNz8Nr0s74';
 //---------------Recuperation des API-----------------------
+
 async function fetchCityImage(cityName) {
     const url = `https://api.unsplash.com/search/photos?query=${cityName}&client_id=${UNSPLASH_ACCESS_KEY}`;
     const response = await fetch(url);
@@ -167,3 +168,43 @@ inputButton.addEventListener('click', async (event) => {
     await updateCityImage(cityName);
 })
 
+
+//--------------fonction d'autocompletage-----
+
+
+
+function getFormInputElement(inputType) {
+    return document.getElementById(inputType);
+}
+
+function fillInCity(place) {
+    const cityInput = getFormInputElement('city');
+    if (place.address_components) {
+        const cityComponent = place.address_components.find(component => component.types.includes('locality'));
+        cityInput.value = cityComponent ? cityComponent.long_name : '';
+    }
+}
+
+async function initMap() {
+    const { Autocomplete } = google.maps.places;
+
+    const autocomplete = new Autocomplete(getFormInputElement('city'), {
+        fields: ['address_components', 'geometry'],
+        types: ['(cities)'],
+    });
+
+    autocomplete.addListener('place_changed', () => {
+        const place = autocomplete.getPlace();
+        if (!place.geometry) {
+            window.alert(`No details available for input: '${place.name}'`);
+            return;
+        }
+        fillInCity(place);
+    });
+}
+
+function initialize() {
+    initMap();
+}
+
+window.onload = initialize;
