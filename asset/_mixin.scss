@@ -9,6 +9,13 @@
     padding-left: 7px;
     display: flex;
     flex-direction: column;
+    font-family: 10px;
+    @include phone {
+        font-size: 12px;
+        width:115px;
+        height: 170px;
+        margin:5px;
+    }
 }
 
 

@@ -14,10 +14,10 @@ body {
     align-items: center;
     font-family: "Raleway";
     font-weight: 400;
-    
+
 
     @include phone {
-        background-size: cover; 
+        background-size: cover;
     }
 }
 
@@ -26,7 +26,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
- 
+
 }
 
 form {
@@ -59,7 +59,10 @@ label {
     }
 }
 
-
+p{
+    margin-block-end: 6px;
+    margin-block-start: 6px;
+}
 #city {
     border-radius: 40px;
     border: none;
@@ -67,11 +70,14 @@ label {
     @include phone {
         border-radius: 5px;
         height: 10px;
-        width:40px;  
-    font-size: 7px;  }
+        width: 40px;
+        font-size: 7px;
+    }
 
 }
-
+figcaption{
+    padding-left: 30px;
+}
 .meteoCard {
     display: flex;
     flex-direction: row;
@@ -82,21 +88,33 @@ label {
     background-color: rgba(245, 245, 245, 0.575);
     border-radius: 20px;
     padding-top: 10px;
+    padding-right: 10px;
     position: relative;
+
     @include phone {
         width: 80vw;
-        height:1000px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding-left:10px
-    
+        height: 580px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding-left: 10px;
+        padding-top: 300px;
     }
 
     &__photo {
-        padding-right: 10px;
+        width: 250px;
+        height: 200px;
+        padding: 10px;
         border-radius: 10%;
-        
+
+        @include phone {
+            position: absolute;
+            top: 0px;
+            left: 5px;
+        }
+
 
     }
 
@@ -107,7 +125,8 @@ label {
 
 
     &__day1 {
-       @include day
+        @include day;
+    
 
     }
 
@@ -132,12 +151,12 @@ label {
     border: none;
     background-color: rgb(10, 255, 26);
     border-radius: 50%;
-    width:15px;
-        height:15px;
+    width: 15px;
+    height: 15px;
     margin: 10px;
     @include phone {
-        width:10px;
-        height:10px;
+        width: 10px;
+        height: 10px;
     }
 }
 
@@ -150,17 +169,18 @@ label {
 }
 
 #buttonExit {
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     border: none;
     background-color: red;
+
     @include phone {
         position: absolute;
-        top : 10px;
-        left:290px
+        top: 10px;
+        left: 290px;
     }
 }

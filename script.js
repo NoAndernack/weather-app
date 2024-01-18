@@ -30,6 +30,23 @@ async function updateCityImage(cityName) {
             fig.appendChild(figcaption);
             imageContainer.innerHTML = '';
             imageContainer.appendChild(fig);
+        } else {
+            const fig = document.createElement('figure');
+            const img = document.createElement('img');
+            const figcaption = document.createElement('figcaption');
+            figcaption.textContent = cityName;
+            figcaption.style.textAlign = "center";
+            img.src = "img/villeVide.png";
+            img.alt = `Image de ville générique`;
+            img.className = 'imgCity'; 
+            img.style.width = '220px';
+            img.style.height = '220px';
+            img.style.borderRadius = '10%';
+            fig.appendChild(img);
+            fig.appendChild(figcaption);
+            imageContainer.innerHTML = '';
+            imageContainer.appendChild(fig);
+
         }
     } catch (error) {
         console.error("Erreur lors de la récupération de l'image de la ville :", error);
@@ -38,11 +55,11 @@ async function updateCityImage(cityName) {
 const fetchPhoto = async () => {
     const url = "https://api.unsplash.com/photos?client_id=2GB3Q5rtkESgtgT08v7GXO7N6iuYb9_92zNz8Nr0s74"
     const response = await fetch(url);
-    return response.json
+    return response.json;
 }
 
 const fetchCity = async (cityName) => {
-    const url = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=dee8f388d8fc9ba6a29dd1055cffe1a5`;
+    const url = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=dee8f388d8fc9ba6a29dd1055cffe1a5`;
     const response = await fetch(url);
     return response.json();
 }

@@ -56,6 +56,11 @@ label {
   }
 }
 
+p {
+  margin-block-end: 6px;
+  margin-block-start: 6px;
+}
+
 #city {
   border-radius: 40px;
   border: none;
@@ -69,6 +74,10 @@ label {
   }
 }
 
+figcaption {
+  padding-left: 30px;
+}
+
 .meteoCard {
   display: flex;
   flex-direction: row;
@@ -79,21 +88,34 @@ label {
   background-color: rgba(245, 245, 245, 0.575);
   border-radius: 20px;
   padding-top: 10px;
+  padding-right: 10px;
   position: relative;
 }
 @media screen and (max-width: 376px) {
   .meteoCard {
     width: 80vw;
-    height: 1000px;
+    height: 580px;
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     padding-left: 10px;
+    padding-top: 300px;
   }
 }
 .meteoCard__photo {
-  padding-right: 10px;
+  width: 250px;
+  height: 200px;
+  padding: 10px;
   border-radius: 10%;
+}
+@media screen and (max-width: 376px) {
+  .meteoCard__photo {
+    position: absolute;
+    top: 0px;
+    left: 5px;
+  }
 }
 .meteoCard__city {
   text-align: center;
@@ -109,6 +131,15 @@ label {
   padding-left: 7px;
   display: flex;
   flex-direction: column;
+  font-family: 10px;
+}
+@media screen and (max-width: 376px) {
+  .meteoCard__day1 {
+    font-size: 12px;
+    width: 115px;
+    height: 170px;
+    margin: 5px;
+  }
 }
 .meteoCard__day2 {
   width: 135px;
@@ -120,6 +151,15 @@ label {
   padding-left: 7px;
   display: flex;
   flex-direction: column;
+  font-family: 10px;
+}
+@media screen and (max-width: 376px) {
+  .meteoCard__day2 {
+    font-size: 12px;
+    width: 115px;
+    height: 170px;
+    margin: 5px;
+  }
 }
 .meteoCard__day3 {
   width: 135px;
@@ -131,6 +171,15 @@ label {
   padding-left: 7px;
   display: flex;
   flex-direction: column;
+  font-family: 10px;
+}
+@media screen and (max-width: 376px) {
+  .meteoCard__day3 {
+    font-size: 12px;
+    width: 115px;
+    height: 170px;
+    margin: 5px;
+  }
 }
 .meteoCard__day4 {
   width: 135px;
@@ -142,6 +191,15 @@ label {
   padding-left: 7px;
   display: flex;
   flex-direction: column;
+  font-family: 10px;
+}
+@media screen and (max-width: 376px) {
+  .meteoCard__day4 {
+    font-size: 12px;
+    width: 115px;
+    height: 170px;
+    margin: 5px;
+  }
 }
 .meteoCard__day5 {
   width: 135px;
@@ -153,6 +211,15 @@ label {
   padding-left: 7px;
   display: flex;
   flex-direction: column;
+  font-family: 10px;
+}
+@media screen and (max-width: 376px) {
+  .meteoCard__day5 {
+    font-size: 12px;
+    width: 115px;
+    height: 170px;
+    margin: 5px;
+  }
 }
 
 .inputButton {
@@ -179,8 +246,8 @@ label {
 }
 
 #buttonExit {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
