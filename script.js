@@ -1,58 +1,70 @@
-const inputButton = document.querySelector(".inputButton");
+
+const inputButton = document.querySelector(".form__button");
 const inputCity = document.querySelector("#city");
 const UNSPLASH_ACCESS_KEY = '2GB3Q5rtkESgtgT08v7GXO7N6iuYb9_92zNz8Nr0s74';
 //---------------Recuperation des API-----------------------
 
 async function fetchCityImage(cityName) {
-    const url = `https://api.unsplash.com/search/photos?query=${cityName}&client_id=${UNSPLASH_ACCESS_KEY}`;
-    const response = await fetch(url);
-    const data = await response.json();
-    return data.results[0].urls.regular;
+    try {
+        const url = `https://api.unsplash.com/search/photos?query=${cityName}&client_id=${UNSPLASH_ACCESS_KEY}`;
+        const response = await fetch(url);
+        const data = await response.json();
+
+        if (Array.isArray(data.results) && data.results.length > 0 && data.results[0].urls) {
+            return data.results[0].urls.regular;
+        } else {
+           
+            return "";
+        }
+    } catch (error) {
+        console.error("Erreur lors de la récupération de l'image de la ville :", error);
+        return "";
+    }
 }
 async function updateCityImage(cityName) {
     try {
-        const imageUrl = await fetchCityImage(cityName);
         const imageContainer = document.getElementById(`meteoCardPhoto-${cityName}`);
+        console.log(`Image Container for ${cityName}:`, imageContainer);
 
-        if (imageContainer) {
-            const fig = document.createElement('figure');
-            const img = document.createElement('img');
-            const figcaption = document.createElement('figcaption');
+        const fig = document.createElement('figure');
+        const img = document.createElement('img');
+        const figcaption = document.createElement('figcaption');
 
-            figcaption.textContent = cityName;
-            figcaption.style.textAlign = "center"
-            img.src = imageUrl;
-            img.alt = `Image de ${cityName}`;
-            img.className = 'imgCity'; 
-            img.style.width = '220px';
-            img.style.height = '220px';
-            img.style.borderRadius = '10%';
-            fig.appendChild(img);
-            fig.appendChild(figcaption);
-            imageContainer.innerHTML = '';
-            imageContainer.appendChild(fig);
+        if (cityName.length > 25) {
+            const shortenedCityName = cityName.substring(0, 25) + "...";
+            figcaption.textContent = shortenedCityName;
         } else {
-            const fig = document.createElement('figure');
-            const img = document.createElement('img');
-            const figcaption = document.createElement('figcaption');
             figcaption.textContent = cityName;
-            figcaption.style.textAlign = "center";
+        }
+        figcaption.style.textAlign = "center";
+        img.alt = `Image de ${cityName}`;
+        img.className = 'imgCity'; 
+        img.style.width = '220px';
+        img.style.height = '220px';
+        img.style.borderRadius = '10%';
+
+        img.onerror = function() {
             img.src = "img/villeVide.png";
             img.alt = `Image de ville générique`;
-            img.className = 'imgCity'; 
-            img.style.width = '220px';
-            img.style.height = '220px';
-            img.style.borderRadius = '10%';
             fig.appendChild(img);
             fig.appendChild(figcaption);
             imageContainer.innerHTML = '';
             imageContainer.appendChild(fig);
+        };
 
-        }
+        const imageUrl = await fetchCityImage(cityName);
+        console.log(`Image URL for ${cityName}:`, imageUrl);
+        img.src = imageUrl;
+
+        fig.appendChild(img);
+        fig.appendChild(figcaption);
+        imageContainer.innerHTML = '';
+        imageContainer.appendChild(fig);
     } catch (error) {
         console.error("Erreur lors de la récupération de l'image de la ville :", error);
     }
 }
+
 const fetchPhoto = async () => {
     const url = "https://api.unsplash.com/photos?client_id=2GB3Q5rtkESgtgT08v7GXO7N6iuYb9_92zNz8Nr0s74"
     const response = await fetch(url);
@@ -90,6 +102,7 @@ async function getCityData(cityName) {
 }
 
 //---------------création des élément de ma carte-----------------------
+
 async function getMeteoData(lon, lat, cityName) {
     try {
 
@@ -106,7 +119,7 @@ async function getMeteoData(lon, lat, cityName) {
 
         const meteoCardPhoto = document.createElement('div');
         meteoCardPhoto.className = 'meteoCard__photo';
-        meteoCardPhoto.id = `meteoCardPhoto-${cityName}`;
+        meteoCardPhoto.id = `meteoCardPhoto-${cityName}`
 
 
         meteoCardPhoto.style.width = "250px";
@@ -143,6 +156,7 @@ async function getMeteoData(lon, lat, cityName) {
             dayCard.appendChild(humidity)
 
             meteoCard.appendChild(dayCard);
+            
         });
         //----------Button------
         const button = document.createElement("button");
@@ -157,6 +171,13 @@ async function getMeteoData(lon, lat, cityName) {
 
         document.body.appendChild(meteoCard);
 
+        const firstCard = document.querySelector('.meteoCard');
+        if (firstCard) {
+            document.body.insertBefore(meteoCard, firstCard);
+        } else {
+            document.body.appendChild(meteoCard);
+        }
+
     } catch (error) {
         console.error("Erreur lors de la récupération des données météorologiques :", error);
     }
@@ -170,8 +191,6 @@ inputButton.addEventListener('click', async (event) => {
 
 
 //--------------fonction d'autocompletage-----
-
-
 
 function getFormInputElement(inputType) {
     return document.getElementById(inputType);
@@ -208,3 +227,22 @@ function initialize() {
 }
 
 window.onload = initialize;
+//----------------------Graphique avec chart js ----------------------
+
+// document.addEventListener("DOMContentLoaded", function () {
+//     const barCanvas = document.getElementById("barCanvas");
+//     const barChart = new Chart(barCanvas, {
+//         type : "bar",
+//         data : {
+//             labels:["beijing","tokyo","seoul"],
+//             datasets: [{
+//                 data:[240,230,140],
+//                 backgroundColor: [
+//                     "crimson",
+//                     "lightgreen",
+//                     "violet", 
+//                 ]
+//             }]
+//         }
+//     });
+// });

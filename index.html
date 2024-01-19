@@ -9,24 +9,26 @@
     <script defer src="script.js"></script>
     <script src="https://kit.fontawesome.com/990b578aaa.js" crossorigin="anonymous"></script>
     <script async
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAi_bGNl73feBuLFLRe4MP78mMeZ6vgoAk&callback=initialize&libraries=places"></script>
-
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAi_bGNl73feBuLFLRe4MP78mMeZ6vgoAk&callback=initialize&libraries=places" type="module"></script>
 </head>
-<header>
-    <img src="img/logo.png" alt="logo d'un nuage avec un soleil" class="logo">
-    <h1 class="titre">Météo</h1>
+<header class="header">
+    <img src="img/logo.png" alt="logo d'un nuage avec un soleil" class="header__logo">
+    <h1 class="header__titre">Météo</h1>
 </header>
 
 <body>
 
-    <form>
-        <label for="city">Entrez le nom d'une ville</label><br>
-        <input type="text" id="city" name="city" placeholder="City" autocomplete="off">
+    <form class="form">
+        <label for="city" class="form__label">Entrez le nom d'une ville</label><br>
+        <input type="text" id="city" name="city" placeholder="City" autocomplete="off" class="form__input">
         <ul id="autocompleteList" style="display: none;"></ul>
-        <button class="inputButton"></button>
+        <button class="form__button"></button>
 
     </form>
-
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"></script>
+    <div class="chart__container">
+<canvas id="barCanvas" aria-label="chart" role="img"></canvas>
+</div> -->
 </body>
 
 </html>

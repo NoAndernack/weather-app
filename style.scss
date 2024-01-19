@@ -2,6 +2,28 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway|Droid+Sans|Roboto+Slab:400,700');
 
 
+.header  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+&__logo {
+    width: 140px;
+
+    @include phone {
+        width: 100px;
+    }
+
+    
+
+    &__titre {
+        color: white;
+
+        @include phone {
+            font-size: 20px;
+        }
+    }
+}}
+
 
 body {
     margin: 0;
@@ -22,62 +44,65 @@ body {
 }
 
 
-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-}
-
-form {
+.form {
     display: flex;
     align-items: center;
-}
 
-.logo {
-    width: 140px;
-
-    @include phone {
-        width: 100px;
+    &__label {
+        margin: 10px;
+        color: whitesmoke;
+    
+        @include phone {
+            font-size: 15px;
+        }
     }
-}
-
-label {
-    margin: 10px;
-    color: whitesmoke;
-
-    @include phone {
-        font-size: 15px;
+    &__input {
+        border-radius: 40px;
+        border: none;
+    
+        @include phone {
+            border-radius: 5px;
+            height: 10px;
+            width: 40px;
+            font-size: 7px;
+        }
+    
     }
-}
-
-.titre {
-    color: white;
-
-    @include phone {
-        font-size: 20px;
+    &__button{
+        border: none;
+        background-color: rgb(10, 255, 26);
+        border-radius: 50%;
+        width: 15px;
+        height: 15px;
+        margin: 10px;
+    
+        @include phone {
+            width: 10px;
+            height: 10px;
+        }
     }
+    
 }
 
-p{
+
+
+
+
+
+
+p {
     margin-block-end: 6px;
     margin-block-start: 6px;
 }
-#city {
-    border-radius: 40px;
-    border: none;
 
-    @include phone {
-        border-radius: 5px;
-        height: 10px;
-        width: 40px;
-        font-size: 7px;
-    }
 
-}
-figcaption{
+figcaption {
     padding-left: 30px;
+  font-size: 14px;
+  @include phone {font-size: 20px;}
 }
+
 .meteoCard {
     display: flex;
     flex-direction: row;
@@ -126,7 +151,7 @@ figcaption{
 
     &__day1 {
         @include day;
-    
+
 
     }
 
@@ -147,18 +172,7 @@ figcaption{
     }
 }
 
-.inputButton {
-    border: none;
-    background-color: rgb(10, 255, 26);
-    border-radius: 50%;
-    width: 15px;
-    height: 15px;
-    margin: 10px;
-    @include phone {
-        width: 10px;
-        height: 10px;
-    }
-}
+
 
 .day {
     font-size: 13px;

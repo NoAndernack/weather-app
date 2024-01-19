@@ -1,8 +1,14 @@
+@mixin tablet {
+    @media screen and (max-width:431px) {
+        @content
+    }
+};
+
 
 @mixin day {
     width: 135px;
     height: 250px;
-    margin:5px;
+    margin-left:50px;
     background-color: rgba(128, 128, 128, 0.253);
     border-radius: 10px;
     text-align: start;
@@ -20,7 +26,8 @@
 
 
 @mixin phone {
-    @media screen and (max-width:376px) {
+    @media screen and (max-width:431px) {
         @content
     }
 }
+

@@ -1,4 +1,26 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway|Droid+Sans|Roboto+Slab:400,700");
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header__logo {
+  width: 140px;
+}
+@media screen and (max-width: 431px) {
+  .header__logo {
+    width: 100px;
+  }
+}
+.header__logo__titre {
+  color: white;
+}
+@media screen and (max-width: 431px) {
+  .header__logo__titre {
+    font-size: 20px;
+  }
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -11,48 +33,49 @@ body {
   font-family: "Raleway";
   font-weight: 400;
 }
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 431px) {
   body {
     background-size: cover;
   }
 }
 
-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-form {
+.form {
   display: flex;
   align-items: center;
 }
-
-.logo {
-  width: 140px;
-}
-@media screen and (max-width: 376px) {
-  .logo {
-    width: 100px;
-  }
-}
-
-label {
+.form__label {
   margin: 10px;
   color: whitesmoke;
 }
-@media screen and (max-width: 376px) {
-  label {
+@media screen and (max-width: 431px) {
+  .form__label {
     font-size: 15px;
   }
 }
-
-.titre {
-  color: white;
+.form__input {
+  border-radius: 40px;
+  border: none;
 }
-@media screen and (max-width: 376px) {
-  .titre {
-    font-size: 20px;
+@media screen and (max-width: 431px) {
+  .form__input {
+    border-radius: 5px;
+    height: 10px;
+    width: 40px;
+    font-size: 7px;
+  }
+}
+.form__button {
+  border: none;
+  background-color: rgb(10, 255, 26);
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  margin: 10px;
+}
+@media screen and (max-width: 431px) {
+  .form__button {
+    width: 10px;
+    height: 10px;
   }
 }
 
@@ -61,21 +84,14 @@ p {
   margin-block-start: 6px;
 }
 
-#city {
-  border-radius: 40px;
-  border: none;
-}
-@media screen and (max-width: 376px) {
-  #city {
-    border-radius: 5px;
-    height: 10px;
-    width: 40px;
-    font-size: 7px;
-  }
-}
-
 figcaption {
   padding-left: 30px;
+  font-size: 14px;
+}
+@media screen and (max-width: 431px) {
+  figcaption {
+    font-size: 20px;
+  }
 }
 
 .meteoCard {
@@ -91,7 +107,7 @@ figcaption {
   padding-right: 10px;
   position: relative;
 }
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 431px) {
   .meteoCard {
     width: 80vw;
     height: 580px;
@@ -110,7 +126,7 @@ figcaption {
   padding: 10px;
   border-radius: 10%;
 }
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 431px) {
   .meteoCard__photo {
     position: absolute;
     top: 0px;
@@ -124,7 +140,7 @@ figcaption {
 .meteoCard__day1 {
   width: 135px;
   height: 250px;
-  margin: 5px;
+  margin-left: 50px;
   background-color: rgba(128, 128, 128, 0.253);
   border-radius: 10px;
   text-align: start;
@@ -133,7 +149,7 @@ figcaption {
   flex-direction: column;
   font-family: 10px;
 }
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 431px) {
   .meteoCard__day1 {
     font-size: 12px;
     width: 115px;
@@ -144,7 +160,7 @@ figcaption {
 .meteoCard__day2 {
   width: 135px;
   height: 250px;
-  margin: 5px;
+  margin-left: 50px;
   background-color: rgba(128, 128, 128, 0.253);
   border-radius: 10px;
   text-align: start;
@@ -153,7 +169,7 @@ figcaption {
   flex-direction: column;
   font-family: 10px;
 }
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 431px) {
   .meteoCard__day2 {
     font-size: 12px;
     width: 115px;
@@ -164,7 +180,7 @@ figcaption {
 .meteoCard__day3 {
   width: 135px;
   height: 250px;
-  margin: 5px;
+  margin-left: 50px;
   background-color: rgba(128, 128, 128, 0.253);
   border-radius: 10px;
   text-align: start;
@@ -173,7 +189,7 @@ figcaption {
   flex-direction: column;
   font-family: 10px;
 }
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 431px) {
   .meteoCard__day3 {
     font-size: 12px;
     width: 115px;
@@ -184,7 +200,7 @@ figcaption {
 .meteoCard__day4 {
   width: 135px;
   height: 250px;
-  margin: 5px;
+  margin-left: 50px;
   background-color: rgba(128, 128, 128, 0.253);
   border-radius: 10px;
   text-align: start;
@@ -193,7 +209,7 @@ figcaption {
   flex-direction: column;
   font-family: 10px;
 }
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 431px) {
   .meteoCard__day4 {
     font-size: 12px;
     width: 115px;
@@ -204,7 +220,7 @@ figcaption {
 .meteoCard__day5 {
   width: 135px;
   height: 250px;
-  margin: 5px;
+  margin-left: 50px;
   background-color: rgba(128, 128, 128, 0.253);
   border-radius: 10px;
   text-align: start;
@@ -213,27 +229,12 @@ figcaption {
   flex-direction: column;
   font-family: 10px;
 }
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 431px) {
   .meteoCard__day5 {
     font-size: 12px;
     width: 115px;
     height: 170px;
     margin: 5px;
-  }
-}
-
-.inputButton {
-  border: none;
-  background-color: rgb(10, 255, 26);
-  border-radius: 50%;
-  width: 15px;
-  height: 15px;
-  margin: 10px;
-}
-@media screen and (max-width: 376px) {
-  .inputButton {
-    width: 10px;
-    height: 10px;
   }
 }
 
@@ -255,7 +256,7 @@ figcaption {
   border: none;
   background-color: red;
 }
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 431px) {
   #buttonExit {
     position: absolute;
     top: 10px;
